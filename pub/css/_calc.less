@@ -1,0 +1,490 @@
+//out: _calc.css, sourcemap: false, compress: false
+@charset "UTF-8";
+
+@font-face {
+    font-family: Manrope-Medium;
+    src: url('../fonts/Manrope-Medium.ttf');
+}
+
+.calc {
+  max-width: 1172px;
+  box-sizing: border-box;
+  margin-top: 100px;
+  margin-bottom: 60px;
+  margin-left: -10px;
+  margin-right: -10px;
+  letter-spacing: -0.02em;
+
+  @media (min-width: 470px) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  a {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  hr {
+    display: block;
+    border: 0;
+    height: 1px;
+    width: 100%;
+    clear: both;
+    background-color: #E8EAEE;
+    margin-top: 32px;
+    margin-bottom: 32px;
+  }
+
+  &__body {
+    background-color: #FFFFFF;
+    border: 1px solid #E8EAEE;
+    box-shadow: 0px 49.2593px 50.9514px rgba(9, 23, 53, 0.0531481), 0px 6.19259px 7.08889px rgba(9, 23, 53, 0.0274815);
+    border-radius: 24px;
+    padding: 40px 20px;
+
+    @media (min-width: 640px) {
+      padding: 40px;
+    }
+    @media (min-width: 1270px) {
+      padding: 70px 70px 50px;
+    }
+  }
+
+  &__title {
+    font-weight: 600;
+    line-height: 100%;
+    margin: 0 0 1.0em;
+    font-size: 22px;
+
+    @media (min-width: 470px) {
+      font-size: 24px;
+    }
+    @media (min-width: 640px) {
+      font-size: 28px;
+    }
+    @media (min-width: 770px) {
+      font-size: 32px;
+    }
+    @media (min-width: 1070px) {
+      font-size: 34px;
+    }
+  }
+
+  &__subtitle {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: #5D6271;
+    margin: 0 0 1.5em;
+
+    @media (min-width: 770px) {
+      font-size: 18px;
+    }
+    @media (min-width: 1070px) {
+      font-size: 20px;
+    }
+  }
+
+  &__title + &__subtitle {
+    margin-top: -0.5em;
+
+    @media (min-width: 770px) {
+      margin-top: -1.0em;
+    }
+    @media (min-width: 1070px) {
+      margin-top: -1.5em;
+    }
+  }
+
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    margin-left: -5px;
+    margin-right: -5px;
+  }
+
+  &__label {
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 150%;
+    padding-left: 3px;
+    margin-bottom: 0.2em;
+
+    @media (min-width: 1070px) {
+      font-size: 19px;
+    }
+  }
+
+  &__item {
+    margin-bottom: 25px;
+    margin-left: 5px;
+    margin-right: 5px;
+
+    input:not([type="checkbox"]):not([type="radio"]):not([type=submit]), textarea, select {
+      border: 0;
+      font-family: inherit;
+      color: #131623;
+      font-family: Manrope-Medium;
+      font-weight: 400;
+      font-size: 16px;
+      padding: 15px;
+      line-height: 1.2;
+      width: 100%;
+      outline: none;
+      background-color: #F3F4F6;
+      border-radius: 12px;
+      -webkit-appearance: none;
+      -moz-appearance:    none;
+      appearance:         none;
+      transition: box-shadow 300ms, background-color 300ms, color 300ms;
+
+      @media (min-width: 470px) {
+        font-size: 17px;
+        padding: 19px 22px;
+      }
+
+      &::-webkit-input-placeholder       {color: #9BA1AC; opacity: 0.99; transition: opacity 0.3s ease;}
+      &::-moz-placeholder                {color: #9BA1AC; opacity: 0.99; transition: opacity 0.3s ease;}
+      &:-moz-placeholder                 {color: #9BA1AC; opacity: 0.99; transition: opacity 0.3s ease;}
+      &:-ms-input-placeholder            {color: #9BA1AC; opacity: 0.99; transition: opacity 0.3s ease;}
+
+      &:focus::-webkit-input-placeholder {opacity: 0;}
+      &:focus::-moz-placeholder          {opacity: 0;}
+      &:focus:-moz-placeholder           {opacity: 0;}
+      &:focus:-ms-input-placeholder      {opacity: 0;}
+
+      &:hover {
+        background-color: #FFFFFF;
+        box-shadow: inset 0 0 0 1px #f8f8f9;
+      }
+
+      &:not(readonly):focus {
+        background-color: #FFFFFF;
+        outline: none;
+        box-shadow: inset 0 0 0 2px #6567E9,
+                    0px 5px 10px rgba(108, 47, 237, 0.15);
+      }
+
+      .notempty&:not(readonly) {
+        box-shadow: inset 0 0 0 1px #2B286B;
+      }
+
+      .error& {
+        box-shadow: inset 0 0 0 1px #EF5436;
+      }
+      .success& {
+        box-shadow: inset 0 0 0 1px #25BA00;
+      }
+    }
+
+    &--type {
+      width: ~"calc(100% - 10px)";
+
+      @media (min-width: 770px) {
+        width: ~"calc(50% - 10px)";
+      }
+      @media (min-width: 1070px) {
+        width: ~"calc(32% - 10px)";
+      }
+    }
+    &--step {
+      width: ~"calc(100% - 10px)";
+
+      @media (min-width: 770px) {
+        width: ~"calc(50% - 10px)";
+      }
+      @media (min-width: 1070px) {
+        width: ~"calc(32% - 10px)";
+      }
+    }
+    &--width {
+      width: ~"calc(50% - 10px)";
+
+      @media (min-width: 770px) {
+        width: ~"calc(20% - 10px)";
+      }
+      @media (min-width: 1070px) {
+        width: ~"calc(18% - 10px)";
+      }
+    }
+    &--height {
+      width: ~"calc(50% - 10px)";
+
+      @media (min-width: 770px) {
+        width: ~"calc(20% - 10px)";
+      }
+      @media (min-width: 1070px) {
+        width: ~"calc(18% - 10px)";
+      }
+    }
+    &--phone {
+      width: ~"calc(100% - 10px)";
+
+      @media (min-width: 470px) {
+        width: ~"calc(50% - 10px)";
+      }
+      @media (min-width: 770px) {
+        width: ~"calc(30% - 10px)";
+      }
+      @media (min-width: 1070px) {
+        width: ~"calc(28% - 10px)";
+      }
+    }
+    &--email {
+      width: ~"calc(100% - 10px)";
+
+      @media (min-width: 470px) {
+        width: ~"calc(50% - 10px)";
+      }
+      @media (min-width: 770px) {
+        width: ~"calc(30% - 10px)";
+      }
+      @media (min-width: 1070px) {
+        width: ~"calc(28% - 10px)";
+      }
+    }
+    &--msg {
+      width: ~"calc(100% - 10px)";
+
+      @media (min-width: 1070px) {
+        width: ~"calc(44% - 10px)";
+      }
+    }
+
+  }
+
+  &__radios {
+    display: flex;
+    padding: 4px;
+    background-color: #F3F4F6;
+    border-radius: 12px;
+
+    label {
+      display: block;
+      user-select: none;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 16px;
+      padding: 11px 13px;
+      line-height: 1.2;
+      color: #5D6271;
+      font-family: Manrope-Medium;
+      background-color: transparent;
+      border-radius: 8px;
+      transition: box-shadow 300ms, background-color 300ms, color 300ms;
+
+      @media (min-width: 470px) {
+        font-size: 17px;
+        padding: 15px 20px;
+      }
+    }
+
+    &--small {
+      label {
+        padding: 15px 11px;
+      }
+    }
+
+    input[type=radio] {
+       display: none;
+
+        &:checked + label {
+            background-color: #FFFFFF;
+            color: #131623;
+            box-shadow: 0px 5px 4px -2px rgba(0, 0, 0, 0.15), 0px 20px 20px -8px rgba(0, 0, 0, 0.15);
+        }
+      }
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    margin-top: 10px;
+
+    @media (min-width: 1070px) {
+      flex-direction: row;
+      align-items: center;
+    }
+
+    & > * {
+      margin-bottom: 20px;
+
+      @media (min-width: 770px) {
+        margin-right: 27px;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  &__bttn {
+    display: table;
+    width: 100%;
+    text-align: center;
+    border-radius: 12px;
+    font-weight: 400;
+    cursor: pointer;
+    font-size: 19px;
+    padding: 14px;
+    line-height: 140%;
+    min-width: 235px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+
+    @media (min-width: 470px) {
+      width: auto;
+    }
+    @media (min-width: 770px) {
+      padding: 24px;
+    }
+
+    svg {
+      display: inline;
+      vertical-align: middle;
+      margin-right: 10px;
+      flex-shrink: 0;
+      max-height: 24px;
+      max-width: 24px;
+      margin-top: -4px;
+
+      path {
+        transition: stroke 300ms, fill 300ms;
+      }
+    }
+
+    &--cta {
+      background-image: radial-gradient(313.51% 913.44% at 97.7% 9.46%, #9765E9 0%, #6567E9 50.71%, #65C9E9 100%);
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0px 5px 4px -2px rgba(106, 93, 223, 0.25), 0px 20px 20px -8px rgba(106, 93, 223, 0.3), inset 0px 4px 12px rgba(255, 255, 255, 0.2);
+      color: #FFFFFF;
+
+      &:hover {
+        background: linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), radial-gradient(313.51% 913.44% at 97.7% 9.46%, #9765E9 0%, #6567E9 50.71%, #65C9E9 100%);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0px 5px 4px -2px rgba(106, 93, 223, 0.25), 0px 20px 20px -8px rgba(106, 93, 223, 0.3), inset 0px 4px 12px rgba(255, 255, 255, 0.2);
+      }
+    }
+  }
+
+  &__result {
+      & > *:not(:last-child) {
+        margin-right: 6px;
+
+        @media (min-width: 770px) {
+          margin-right: 12px;
+        }
+    }
+  }
+
+  &__descr {
+    line-height: 150%;
+    font-size: 16px;
+
+    @media (min-width: 470px) {
+      font-size: 18px;
+    }
+    @media (min-width: 770px) {
+      font-size: 20px;
+    }
+    @media (min-width: 1070px) {
+      font-size: 22px;
+    }
+  }
+
+  &__costicon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    background-color: #88E965;
+    height: 28px;
+    width: 28px;
+    margin-right: 10px;
+    border-radius: 14px;
+    margin-bottom: 4px;
+
+    &::before {
+      display: block;
+      content: '';
+      height: 5px;
+      width: 9px;
+      margin-top: -4px;
+      border-bottom: 2px solid #38891A;
+      border-left: 2px solid #38891A;
+      transform: rotate(-45deg);
+    }
+  }
+
+  &__cost {
+    vertical-align: middle;
+    font-weight: 800;
+    line-height: 1;
+    font-size: 22px;
+
+    @media (min-width: 470px) {
+      font-size: 24px;
+    }
+    @media (min-width: 770px) {
+      font-size: 28px;
+    }
+    @media (min-width: 1070px) {
+      font-size: 32px;
+    }
+  }
+
+  &__notion {
+    font-size: 14px;
+    line-height: 130%;
+    color: #9BA1AC;
+  }
+
+  &__foot {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+
+    @media (min-width: 770px) {
+      flex-direction: row;
+      align-items: center;
+    }
+
+    & > *:not(:last-child) {
+      margin-right: 25px;
+    }
+  }
+
+  &__foottext {
+    line-height: 140%;
+    color: #131623;
+    margin-bottom: 12px;
+    font-size: 16px;
+
+    @media (min-width: 770px) {
+      font-size: 18px;
+      margin-bottom: 2px;
+    }
+  }
+
+  &__phone {
+    display: block;
+    font-size: 26px;
+    line-height: 1;
+    color: #131623;
+    margin-bottom: 20px;
+
+    @media (min-width: 770px) {
+      margin-bottom: 0;
+    }
+  }
+}
