@@ -1,3 +1,13 @@
+<? /*
+<span class="calc__cost">
+  <span class="calc__costicon"></span>
+  <span class="calc__price">24 000</span> ₽
+</span>
+<span class="calc__descr">
+  —  12 м2, 4 на 3 м, потребляемость: 150 кВт
+</span>
+*/ ?>
+
 -----------------------------------------
 Результат для экана с шагом 3.0мм,
 с размерами : 2000x1000мм,

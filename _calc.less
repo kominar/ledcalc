@@ -1,19 +1,18 @@
-//out: _calc.css, sourcemap: false, compress: false
+//out: _calc.css, sourcemap: false, compress: true
 @charset "UTF-8";
 
-@font-face {
-    font-family: Manrope-Medium;
-    src: url('../fonts/Manrope-Medium.ttf');
-}
-
 .calc {
-  max-width: 1172px;
+  max-width: 1296px;
   box-sizing: border-box;
   margin-top: 100px;
-  margin-bottom: 60px;
-  margin-left: -10px;
-  margin-right: -10px;
+  margin-bottom: 100px;
+  margin-left: -12px;
+  margin-right: -12px;
   letter-spacing: -0.02em;
+
+  .section-4 & {
+    margin-top: -220px;
+  }
 
   @media (min-width: 470px) {
     margin-left: auto;
@@ -38,6 +37,7 @@
     height: 1px;
     width: 100%;
     clear: both;
+    opacity: 1;
     background-color: #E8EAEE;
     margin-top: 32px;
     margin-bottom: 32px;
