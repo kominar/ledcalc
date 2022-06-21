@@ -1,7 +1,15 @@
 jQuery(function($){
+
+  function MyRound100(val) {
+    return Math.ceil(val / 100) * 100;
+  }
+
   $(document).ready(function() {
 
     $('body').on('change', '.calc input[type=number], .calc input[type=radio]', function(e) {
+        calc();
+    });
+    $('body').on('keyup', '.calc input[type=number]', function(e) {
         calc();
     });
 
@@ -26,15 +34,16 @@ jQuery(function($){
       if (hasError) return;
       $.each(calcArr,function(index,value){
         if ( value[0] == step && value[1] == type ) {
-          cols = Math.ceil( parseInt(width) / value[2])
-          rows = Math.ceil( parseInt(height) /value[3])
+          cols = Math.ceil( parseInt(width) / value[2]);
+          rows = Math.ceil( parseInt(height) /value[3]);
+          curWidth = cols * value[2];
+          curHeight = rows * value[3];
+          rows = Math.ceil( parseInt(height) /value[3]);
           square = cols * value[2] * rows * value[3] / 1000000; // получаем квадратный метр
-          price = parseInt(square * value[7]).toLocaleString("ru"); // получаем цену
+          price = MyRound100(square * value[7]).toLocaleString("ru"); // получаем цену
           pixelX = cols * value[4];
           pixelY = rows * value[5];
           power = cols * rows * value[6] / (0.85 * 1000);
-          console.log('price', price);
-          // console.log('height', height);
           hasMoldule = true;
         }
       });
@@ -47,7 +56,7 @@ jQuery(function($){
           '<span class="calc__costicon"></span><span class="calc__price">'+ price +'</span> ₽' +
         '</span>' +
         '<span class="calc__descr">' +
-          '—  '+parseFloat(square).toFixed(2)+' м2, '+pixelX+'x'+pixelY+', потребляемость: '+parseFloat(power).toFixed(2)+' кВт' +
+          '—  площадь: '+parseFloat(square).toFixed(1)+' м2, размер: '+curWidth+'x'+curHeight+'мм, разрешение: '+pixelX+'x'+pixelY+', мощность: '+parseFloat(power).toFixed(1)+' кВт' +
         '</span>'
       );
     }
