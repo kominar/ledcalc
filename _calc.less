@@ -1,6 +1,18 @@
 //out: _calc.css, sourcemap: false, compress: true
 @charset "UTF-8";
 
+.hidden-xs {
+  @media (max-width: 769px) {
+    display: none;
+  }
+}
+
+.visible-xs {
+  @media (min-width: 770px) {
+    display: none;
+  }
+}
+
 .calc {
   max-width: 1296px;
   box-sizing: border-box;
@@ -129,6 +141,7 @@
     margin-bottom: 25px;
     margin-left: 5px;
     margin-right: 5px;
+    width: 100%;
 
     input:not([type="checkbox"]):not([type="radio"]):not([type=submit]), textarea, select {
       border: 0;
@@ -260,7 +273,6 @@
         width: ~"calc(44% - 10px)";
       }
     }
-
   }
 
   &__radios {

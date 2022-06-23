@@ -56,9 +56,6 @@
 
     <?php include '_calc.js'; ?>
 </script>
-<pre style="display:none;">
-    <? var_dump($calcArr);?>
-    </pre>
 <div id="calc-<?=mt_rand(0, 1000)?>" class="calc">
 	<div class="calc__body">
 		<div class="calc__title">Рассчитайте стоимость ремонта</div>
@@ -101,6 +98,7 @@
   				<div class="calc__label">Высота, мм</div>
   				<input type="number" name="height" min="0" placeholder="Не указано">
   			</div>
+        <div class="calc__item calc__result visible-xs"></div>
   			<div class="calc__item calc__item--phone">
   				<div class="calc__label">Телефон*</div>
   				<input type="text" name="phone" placeholder="+7 (">
@@ -121,7 +119,7 @@
 				<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.5 22H18.5C19.0304 22 19.5391 21.7893 19.9142 21.4142C20.2893 21.0391 20.5 20.5304 20.5 20V7.5L15 2H6.5C5.96957 2 5.46086 2.21071 5.08579 2.58579C4.71071 2.96086 4.5 3.46957 4.5 4V8" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M14.5 2V8H20.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3.5 15L5.5 17L9.5 13" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
 				<span>Получить КП</span>
 			</div>
-			<div class="calc__result"></div>
+			<div class="calc__result hidden-xs"></div>
 		</div>
     <div class="calc__success"></div>
 		<div class="calc__notion">*стоимость рассчета приблизительная. Для уточнения деталей мы скоро с вами свяжемся</div>
